@@ -32,6 +32,14 @@ message
 
 Sau khi Commit duoc tao ra, Git se kiem tra toan bo noi dung cua commit do, tao hash SHA-1 dua tren noi dung cua **commit**, dong thoi ma bam nay duoc gan cho cho **commit** do. Dieu nay cung chung minh cho tinh toan ven cua Git nhu da noi o phan tren, khi noi dung cua **commit** thay doi nghia la Hash se khac so voi Hash cua commit goc. Vay nen, neu commit co bat ky su thay doi nao, Git cung deu nhan ra su thay doi do.
 
+>  Noi dung cua mot commit co hinh dang nhu sau:
+
+```
+commit 1ef8c44a44886206f2a51bad2ded4554ba39c176 (HEAD -> main, origin/main)
+Author: Quangdai2207 <daitran.inbox@gmail.com>
+Date:   Sat Jun 20 01:08:39 2026 +0700
+```
+
 # Chuoi Lich Su Commit
 
 Nen nho rang, moi mot **commit** la mot doi tuong **(Oject)** gom cac thuoc tinh can thiet cua mot commit. Cac commit xac nhan moi quan he cha con deu dua tren thuoc tinh **parent**.
