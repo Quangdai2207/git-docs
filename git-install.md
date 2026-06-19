@@ -84,3 +84,6 @@ $ brew install git-gui
 
 Co the vao trang chinh thuc cua Git de xem them huong dan chi tiet cai dat cho Windows.
 link: [https://git-scm.com/install/windows](https://git-scm.com/install/windows "Click on")
+
+---
+Xem tiep: [git setup](./git-setup.md)
