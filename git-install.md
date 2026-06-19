@@ -2,7 +2,11 @@
 
 Neu chi muon cac cong cu Git don gian bang file chuong trinh binary, co the thuc hien cac lenh cai dat sau cho tung he dieu hanh
 
-## 1. Linux {1}
+- [linux](#1-linux)
+- [macOs](#macos)
+- [Windows](#3-windows)
+
+## 1. Linux
 
 Vi he dieu hanh Linux co nhieu ban phoi, lua chon 1 trong ban phoi va cach thuc cai dat phu ho cho tung ban phoi
 
@@ -49,7 +53,7 @@ Slitaz
 $ tazpkg get-install git
 ````
 
-## 2. MacOS {2}
+## MacOs
 
 ```text
 Mot so cach cai dat GIT cho may MacOS, co the chon mot trong so cac cach sau de cai dat
@@ -76,7 +80,7 @@ you can do so using homebrew
 $ brew install git-gui
 ```
 
-## 3. Windows {3}
+## 3. Windows
 
 Co the vao trang chinh thuc cua Git de xem them huong dan chi tiet cai dat cho Windows.
 link: [https://git-scm.com/install/windows](https://git-scm.com/install/windows "Click on")
