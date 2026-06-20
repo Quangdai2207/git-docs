@@ -136,7 +136,7 @@ $ man git
 # Huong dan mot command cu the cua GIT
 $ git config --help
 $ git config -h
-$ git hekp config
+$ git help config
 ```
 
 Thong tin huong dan GIT co dang nhu sau:
