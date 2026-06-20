@@ -57,4 +57,4 @@ Commit tao ra la bat bien, khong the thay doi noi dung cua commit dang ton tai.
 Cac Commit co moi quan he cha - con
 ````
 
-- Xem tiep [the three states](./git-three-states.md)
+- [The three states](./git-three-states.md)

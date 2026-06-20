@@ -1,4 +1,4 @@
-# GIT BASIC - PART 1
+# GIT BASIC - PHAN 1
 
 Git basic ve co ban giup chung ta co the lam viec voi Git thong qua cac thao tac co ban nhu cau hinh, khoi kho luu tru du lieu, bat dau va dung theo doi mot file, stage va commit thay doi.
 
@@ -288,5 +288,5 @@ Ky tu dau tien la trang thai cua file, va ky tu dung sau no la bieu thi cho tran
 [??] file chua duoc Tracked.
 ```
 
-[Ve dau trang](#git-basic) - 
-[Git basic - phan 2](./git-basic-2.md)
+[Git basic phan 2](./git-basic-2.md)
+[Ve dau trang](#git-basic)

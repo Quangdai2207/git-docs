@@ -29,7 +29,9 @@
   $ git config --global init.defaultBranch "main"
 ```
 
-***
+- [Xem Cau Hinh Git](./git-setup.md)
+
+---
 
 - ## Git Basic
 

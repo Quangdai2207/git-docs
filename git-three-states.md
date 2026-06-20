@@ -40,4 +40,4 @@ Neu mot file da duoc chinh sua so coi phien ban truoc do cua no ma chua dua vao 
 | 2 | Staged               | Staging Area       |
 | 3 | Commited             | Repository         |
 
-Xem tiep [Cai dat GIT](./git-install.md)
+- [Cai dat GIT](./git-install.md)
