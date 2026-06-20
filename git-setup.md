@@ -5,6 +5,9 @@ Sau khi cai dat Git tren he thong, ta can thuc hien mot so thiet lap de tuy chin
 1. [Cac cap do cau hinh GIT](#cac-cap-do-cau-hinh-git)
 2. [Kiem tra thong tin cau hinh](#kiem-tra-thong-tin-cau-hinh)
 3. [Thiet lap cau hinh](#thiet-lap-thong-tin-cau-hinh)
+4. [GIT help](#git-help)
+
+---
 
 ## Cac cap do Cau hinh Git
 
@@ -97,13 +100,74 @@ $ git config --list
 Khong nhu cau lenh co flag `--show-origin`, `--list` chi liet ke thong tin cau hinh la cac `KEY=VALUE` khong bao gom cac `path` cu the cua tung `KEY = VALUE`, nhung ta can ngam hieu rang GIT se tu ap dung cau hinh trong ngu canh moi truong hien tai cua no duoc thiet lap. Git cung cho phep doc cau hinh cu the cua mot thuoc tinh
 
 ```bash
-# Doc username
+# Doc username tu thuoc tinh user.name
 $ git config user.name
 
-# Doc email
+# Doc email tu thuoc tinh user.email
 $ git config user.email
 ```
 
 **Output:**
+
 > username
+
 > example@gmail.com
+
+## GIT Help
+
+Co 4 cu phap chinh de xem huong dan GIT trong qua trinh su dung
+
+```text
+git help <verb>
+git <verb> --help
+git <verb> -h
+man git
+```
+
+Vi du:
+
+```bash
+# Huong dan chung ve GIT bang help
+$ git help
+
+# Huong dan du dung Git bang chuong trinh "man"
+$ man git
+
+# Huong dan mot command cu the cua GIT
+$ git config --help
+$ git config -h
+$ git hekp config
+```
+
+Thong tin huong dan GIT co dang nhu sau:
+
+```text
+$ git add -h
+usage: git add [<options>] [--] <pathspec>...
+      -n, --dry-run dry run
+      -v, --verbose be verbose
+      -i, --interactive interactive picking
+      -p, --patch select hunks interactively
+      -e, --edit edit current diff and apply
+      -f, --force allow adding otherwise ignored files
+      -u, --update update tracked files
+      --renormalize renormalize EOL of tracked files (implies -u)
+      -N, --intent-to-add record only the fact that the path will be added later
+      -A, --all add changes from all tracked and untracked files
+      --ignore-removal ignore paths removed in the working tree (same as --no
+    -all)
+      --refresh don't add, only refresh the index
+      --ignore-errors just skip files which cannot be added because of
+    errors
+    --ignore-missing check if - even missing - files are ignored in dry run
+      --sparse allow updating entries outside of the sparse-checkout
+    cone
+      --chmod (+|-)x override the executable bit of the listed files
+      --pathspec-from-file <file> read pathspec from file
+      --pathspec-file-nul with --pathspec-from-file, pathspec elements are
+    separated with NUL character
+```
+
+---
+
+Xem tiep: [Git basic](./git-basic.md)
