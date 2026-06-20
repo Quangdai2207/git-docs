@@ -288,5 +288,5 @@ Ky tu dau tien la trang thai cua file, va ky tu dung sau no la bieu thi cho tran
 [??] file chua duoc Tracked.
 ```
 
-[⬆️ Ve dau trang](#git-basic)
-🚀 Xem tiep [Git basic - part 2](./git-basic-2.md)
+[Ve dau trang](#git-basic) - 
+[Git basic - phan 2](./git-basic-2.md)
