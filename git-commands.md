@@ -33,7 +33,7 @@
 
 ---
 
-- ## Git Basic
+- ## Git commands
 
 > Them vao Staging Area
 
@@ -68,9 +68,55 @@ $ git commit --amned "Fix for second command"
 # kiem tra trang thai
 $ git status
 
-# Kiem tra noi dung thay doi
-$ git diff
+# Kiem tra noi dung thay doi so voi noi dung staged truoc do
+$ git diff [file-name]
+
+# Kiem tra thay doi tu staged so voi last committed
+$ git diff --staged [file-name]
 
 # Kiem tra status voi --short
 $ git status -s
 ```
+
+> Staged & Commit thay doi
+
+```bash
+# Staged cac thay doi cho file cu the
+$ git add filename
+
+# Staged toan bo cac thay doi
+$ git add .
+
+# commit cac thay doi
+$ git commit
+
+# Commit voi noi dung diff trong Editor
+$ git commit -v
+
+# commit voi message
+$ git commit -m "messsage"
+
+# commit bo qua staged
+$ git commit -a -m "message"
+```
+
+> Remove file va Remoe cached
+
+```bash
+# Remmove file bang lenh Git, ap dung cho file Tracked
+$ git rm filename
+
+# Remove voi matching pattern
+$ git rm /\*.log
+
+# Remove file voi --force
+$ git rm -f filename
+
+# Remove file ra khoi vung Staged khi da committed
+$ git rm --cache filenamme
+
+# Remmove file ra khoi Staged neu chua commit
+$ git restore --staged filename
+```
+
+- [Git basic phan 2](./git-basic-2.md)
