@@ -24,213 +24,215 @@ Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi t
 - `git diff` cung so sanh noi dung `Unstaged` voi `last commited`.
 - `git diff --staged` chi so sanh thay doi da duoc `Staged` so voi `last commited`.
 
-###### git diff --cached
+##### git diff --cached
 
 cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dung thay doi `staged` so voi `last commited`
 
-### Commit Cac Thay Doi.
+- ### Commit Cac Thay Doi.
 
-`commit` cac thay doi chi tac dong len nhung thay doi da duoc `staged`, neu nhu co bat ky thay doi nao chua duoc dua vao khu vuc Staging Area (Staged) thi khong duoc commit tiep theo, moi thay doi do chi duoc xem la thay doi tren vung Working Tree ([3 trang thai cua git](./git-three-states.md)).
+  `commit` cac thay doi chi tac dong len nhung thay doi da duoc `staged`, neu nhu co bat ky thay doi nao chua duoc dua vao khu vuc Staging Area (Staged) thi khong duoc commit tiep theo, moi thay doi do chi duoc xem la thay doi tren vung Working Tree ([3 trang thai cua git](./git-three-states.md)).
 
-Gia su rang moi thay doi ra duoc Staged va ta thuc hien commit;
+  Gia su rang moi thay doi ra duoc Staged va ta thuc hien commit;
 
-```bash
-$ git commit
-```
-
-Khi thuc hien `git commit`, Git se hien thi trinh soan thao ma ta da cau hinh trong `git config --global core.editor nano`, trong truong hop nay thi trinh editor `nano` cua he thong se duoc mo dong thoi no se hien thi noi dung output cua `git status` de ta biet duoc noi dung commit se la noi dung gi. Trong trinh soan thao, o tren cung la mot dong trong de nhap `message` cho commit. Noi dung hien thi ben trong Editor se giong nhu the nay:
-
-```text
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-# On branch master
-# Your branch is up-to-date with 'origin/master'.
-#
-# Changes to be committed:
-# new file: README
-# modified: DEMO-100
-#
-~
-~
-~
-".git/COMMIT_EDITMSG" 9L, 283C
-```
-
-bo het tat ca commented trong Editor va nhap noi dung message de xac nhan commit.
-
-Ngoai ra, de biet chinh xac nhung gi ta se thuc hien commit cho nhung thay doi lan nay, co the them flag `-v`. Flag `-v` se hien thi noi dung cua `git diff --staged` trong trinh soan thao, giup ta biet duoc viec commit se tac dong len nhung thay doi nao.
-
-```text
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# On branch main
-# Changes to be committed:
-#       modified:   demo-100
-#
-# ------------------------ >8 ------------------------
-# Do not modify or remove the line above.
-# Everything below it will be ignored.
-diff --git a/demo-100 b/demo-100
-index 1d60b70..02dc432 100644
---- a/demo-100
-+++ b/demo-100
-@@ -1 +1 @@
--ddd
-+eeee
-```
-
-Xoa toan bo noi dung trong trinh soan thao, nhap message va xac thuc commit. Thoat ra ngoai bang cach `command + o` de ghi noi dung va `command + x` de thoat, ap dung cho macbook.
-
-Neu khong muon Git chi dinh Editor de them `message` cho commit, co the them flag `-m` de them `message` ngay tren dong lenh va thuc hien commit
-
-```texx
-$ git commit -m "first commit"
-[master 463dc4f] Story 182: first commit
- 2 files changed, 2 insertions(+)
- create mode 100644 README
-```
-
-- ##### Commit bo qua Staged
-
-  Nhu da noi, `git commit` chi tac dong len nhung thay doi da duoc Staged. Tuy nhien, doi voi nhung tep file ma Git da `Tracked` thi Git cho phep `commit` truc tiep voi flag `-a` thay vi thuc hien `git add` roi sau do `git commit`. Doi voi nhung file ma Git chua `Tracked` thi phai thuc hien `git add` truoc khi commit.
-
-  Mot dieu luu y, khi cac moi thay doi tren cac file da duoc Git `Tracked`, thi `git commit -a` se commit toan no cac thay doi do. Vay nen can nhac truoc khi su dung, vi mot so thay doi ma ta chua muon thuc hien trong commit hien tai.
-
-  ```text
-  # Thuc hien thay doi noi noi dung DEMO-100 va commit
-  $ echo "add new content" >> DEMO-100
-
-  # Kiem tra status
-  $ git status
-  On branch master
-  Your branch is up-to-date with 'origin/master'.
-  Changes not staged for commit:
-    (use "git add <file>..." to update what will be committed)
-    (use "git checkout -- <file>..." to discard changes in working directory)
-    modified: DEMO-100
-  no changes added to commit (use "git add" and/or "git commit -a")
-
-  # commit thay doi
-  $ git commit -a -m "commit without staged"
+  ```bash
+  $ git commit
   ```
 
-### Removing tep
+  Khi thuc hien `git commit`, Git se hien thi trinh soan thao ma ta da cau hinh trong `git config --global core.editor nano`, trong truong hop nay thi trinh editor `nano` cua he thong se duoc mo dong thoi no se hien thi noi dung output cua `git status` de ta biet duoc noi dung commit se la noi dung gi. Trong trinh soan thao, o tren cung la mot dong trong de nhap `message` cho commit. Noi dung hien thi ben trong Editor se giong nhu the nay:
 
-Trong ngu canh, kho luu tru dang o trang thai `last commited` chua co bat ky su thay doi nao va toan bo dang duoc Git Tracked. Trong truong hop remove 1 file cu the trong Working Tree, ta co the thuc hien bang cach, mot la lenh Shell va 2 lenh Git. Su khac nhau cua 2 lenh nay la lenh Shell remove dong thoi phai Staged su thay doi, lenh Git remove tu dong Staged su thay doi. Vi du:
+  ```text
 
-```text
-$ git-lesson % rm demo3 && git status
-On branch main
-Changes not staged for commit:
+  # Please enter the commit message for your changes. Lines starting
+  # with '#' will be ignored, and an empty message aborts the commit.
+  # On branch master
+  # Your branch is up-to-date with 'origin/master'.
+  #
+  # Changes to be committed:
+  # new file: README
+  # modified: DEMO-100
+  #
+  ~
+  ~
+  ~
+  ".git/COMMIT_EDITMSG" 9L, 283C
+  ```
+
+  bo het tat ca commented trong Editor va nhap noi dung message de xac nhan commit.
+
+  Ngoai ra, de biet chinh xac nhung gi ta se thuc hien commit cho nhung thay doi lan nay, co the them flag `-v`. Flag `-v` se hien thi noi dung cua `git diff --staged` trong trinh soan thao, giup ta biet duoc viec commit se tac dong len nhung thay doi nao.
+
+  ```text
+
+  # Please enter the commit message for your changes. Lines starting
+  # with '#' will be ignored, and an empty message aborts the commit.
+  #
+  # On branch main
+  # Changes to be committed:
+  #       modified:   demo-100
+  #
+  # ------------------------ >8 ------------------------
+  # Do not modify or remove the line above.
+  # Everything below it will be ignored.
+  diff --git a/demo-100 b/demo-100
+  index 1d60b70..02dc432 100644
+  --- a/demo-100
+  +++ b/demo-100
+  @@ -1 +1 @@
+  -ddd
+  +eeee
+  ```
+
+  Xoa toan bo noi dung trong trinh soan thao, nhap message va xac thuc commit. Thoat ra ngoai bang cach `command + o` de ghi noi dung va `command + x` de thoat, ap dung cho macbook.
+
+  Neu khong muon Git chi dinh Editor de them `message` cho commit, co the them flag `-m` de them `message` ngay tren dong lenh va thuc hien commit
+
+  ```texx
+  $ git commit -m "first commit"
+  [master 463dc4f] Story 182: first commit
+   2 files changed, 2 insertions(+)
+   create mode 100644 README
+  ```
+
+  - ##### Commit bo qua Staged
+
+    Nhu da noi, `git commit` chi tac dong len nhung thay doi da duoc Staged. Tuy nhien, doi voi nhung tep file ma Git da `Tracked` thi Git cho phep `commit` truc tiep voi flag `-a` thay vi thuc hien `git add` roi sau do `git commit`. Doi voi nhung file ma Git chua `Tracked` thi phai thuc hien `git add` truoc khi commit.
+
+    Mot dieu luu y, khi cac moi thay doi tren cac file da duoc Git `Tracked`, thi `git commit -a` se commit toan no cac thay doi do. Vay nen can nhac truoc khi su dung, vi mot so thay doi ma ta chua muon thuc hien trong commit hien tai.
+
+    ```text
+    # Thuc hien thay doi noi noi dung DEMO-100 va commit
+    $ echo "add new content" >> DEMO-100
+
+    # Kiem tra status
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+      modified: DEMO-100
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    # commit thay doi
+    $ git commit -a -m "commit without staged"
+    ```
+
+- ### Removing tep tin
+
+  Trong ngu canh, kho luu tru dang o trang thai `last commited` chua co bat ky su thay doi nao va toan bo dang duoc Git Tracked. Trong truong hop remove 1 file cu the trong Working Tree, ta co the thuc hien bang cach, mot la lenh Shell va 2 lenh Git. Su khac nhau cua 2 lenh nay la lenh Shell remove dong thoi phai Staged su thay doi, lenh Git remove tu dong Staged su thay doi. Vi du:
+
+  ```text
+  $ git-lesson % rm demo3 && git status
+  On branch main
+  Changes not staged for commit:
   (use "git add/rm <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-	deleted:    demo3
+      deleted:    demo3
 
-no changes added to commit (use "git add" and/or "git commit -a")
+  no changes added to commit (use "git add" and/or "git commit -a")
 
-$ git-lesson % git rm demo2 && git status
-rm 'demo2'
-On branch main
-Changes to be committed:
+  $ git-lesson % git rm demo2 && git status
+  rm 'demo2'
+  On branch main
+  Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
-	deleted:    demo2
+      deleted:    demo2
 
-Changes not staged for commit:
+  Changes not staged for commit:
   (use "git add/rm <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-	deleted:    demo3
-```
+      deleted:    demo3
+  ```
 
-Trong demo tren thi demo2 va demo3 la 2 file ma Git `Tracked`, khi demo3 xoa bang lenh Shell `rm demo3` nhung chua Staged thay doi. Khi thuc hien remove demo2 bang `git rm` thi Git lam 2 viec `rm demo2` va tu dong `git add demo2`. Ca 2 lenh remove cua Shell va Git chua thuc su lam mat demo3 hay demo 2 hoan toan, vi trong `last commit` gan nhat van con ton tai 2 file nay va co the phuc hoi dua vao du lieu cua `last commit`.
+  Trong demo tren thi demo2 va demo3 la 2 file ma Git `Tracked`, khi demo3 xoa bang lenh Shell `rm demo3` nhung chua Staged thay doi. Khi thuc hien remove demo2 bang `git rm` thi Git lam 2 viec `rm demo2` va tu dong `git add demo2`. Ca 2 lenh remove cua Shell va Git chua thuc su lam mat demo3 hay demo 2 hoan toan, vi trong `last commit` gan nhat van con ton tai 2 file nay va co the phuc hoi dua vao du lieu cua `last commit`.
 
-Mot truong hop cu the, khi trong Working Tree hien tai, thuc hien xoa demo3 ra khoi vung lam viec hien tai nhung khong `Staged`. Luc nay demo3 mat tren Working Tree nhung du lieu Git con luu (Dieu kien demo3 nam trong commit gan nhat), ta co the thuc hien khoi phuc demo3 bang cach.
+  Mot truong hop cu the, khi trong Working Tree hien tai, thuc hien xoa demo3 ra khoi vung lam viec hien tai nhung khong `Staged`. Luc nay demo3 mat tren Working Tree nhung du lieu Git con luu (Dieu kien demo3 nam trong commit gan nhat), ta co the thuc hien khoi phuc demo3 bang cach.
 
-```text
-$ rm demo3
-$ git status
-On branch main
-Changes not staged for commit:
+  ```text
+  $ rm demo3
+  $ git status
+  On branch main
+  Changes not staged for commit:
   (use "git add/rm <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-	deleted:    demo3
+      deleted:    demo3
 
-no changes added to commit (use "git add" and/or "git commit -a")
+  no changes added to commit (use "git add" and/or "git commit -a")
 
-# Khoi phuc demo3
-$ git restore demo3
+  # Khoi phuc demo3
+  $ git restore demo3
 
-$ ls -n
-```
+  $ ls -n
+  ```
 
-Cung trong truong hop xoa demo3, nhung truoc khi xoa demo3 ta co thay doi mot so noi dung cho demo3 nhung chua Staged va tiep tuc remove demo3. Khi khoi phuc thi Git se khoi phuc lai demo3 cung voi noi dung goc cua demo3 trong `last commit` cua no. Neu nhu viec thay doi noi dung cho demo3 duoc Staged truoc khi remove thi khi khoi phuc, Git se khoi phuc demo3 cung voi noi dung thay doi da duoc Staged.
+  Cung trong truong hop xoa demo3, nhung truoc khi xoa demo3 ta co thay doi mot so noi dung cho demo3 nhung chua Staged va tiep tuc remove demo3. Khi khoi phuc thi Git se khoi phuc lai demo3 cung voi noi dung goc cua demo3 trong `last commit` cua no. Neu nhu viec thay doi noi dung cho demo3 duoc Staged truoc khi remove thi khi khoi phuc, Git se khoi phuc demo3 cung voi noi dung thay doi da duoc Staged.
 
-```text
-$ echo "aaa" >> demo3
-$ git add demo3
-$ rm demo3
+  ```text
+  $ echo "aaa" >> demo3
+  $ git add demo3
+  $ rm demo3
 
-$ git status
-On branch main
-Changes to be committed:
+  $ git status
+  On branch main
+  Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
-	deleted:    demo3
+      deleted:    demo3
 
-# Khoi phuc demo3
-# Dau tien dua demo3 ra khoi vung Staged, du lieu git khoi phuc demo3
-# git restore --staged demo3
+  # Khoi phuc demo3
+  # Dau tien dua demo3 ra khoi vung Staged, du lieu git khoi phuc demo3
+  # git restore --staged demo3
 
-# Khoi phuc demo3 cho Working Tree
-$ git restore demo3
+  # Khoi phuc demo3 cho Working Tree
+  $ git restore demo3
 
-# List item kiem tra demo3 restored chua
-# ls -n
+  # List item kiem tra demo3 restored chua
+  # ls -n
 
-# Test noi dung demo3
-# cat demo3
-```
+  # Test noi dung demo3
+  # cat demo3
+  ```
 
-Neu nhu mot file moi duoc them vao Working Tree va chua duoc Git Tracked, thi khi khong the thuc hien remove bang lenh Git, dieu nay cung dong nghia khi thuc hien remove bang lenh Shell thi file do se bien mat trong Wroking Tree va Git cung khong the phuc hoi duoc file do. Neu nhu file duoc them vao va Staged thi khi remove bang Shell thi Git se phuc hoi file do tu khu vuc Staged.
+  Neu nhu mot file moi duoc them vao Working Tree va chua duoc Git Tracked, thi khi khong the thuc hien remove bang lenh Git, dieu nay cung dong nghia khi thuc hien remove bang lenh Shell thi file do se bien mat trong Wroking Tree va Git cung khong the phuc hoi duoc file do. Neu nhu file duoc them vao va Staged thi khi remove bang Shell thi Git se phuc hoi file do tu khu vuc Staged.
 
-> Them file demo4 nhung Untracked
+  > Them file demo4 nhung Untracked
 
-```text
-$ touch demo4
-$ git status
-$ rm demo4
-$ git restore demo4
-error: pathspec 'demo4' did not match any file(s) known to git
-```
+  ```text
+  $ touch demo4
+  $ git status
+  $ rm demo4
+  $ git restore demo4
+  error: pathspec 'demo4' did not match any file(s) known to git
+  ```
 
-> Them file demo4 nhung Tracked
+  > Them file demo4 nhung Tracked
 
-```text
-$ touch demo4
-$ git add demo4
-$ git status
+  ```text
+  $ touch demo4
+  $ git add demo4
+  $ git status
 
-# Xoa bang lenh Shell
-$ rm demo4
+  # Xoa bang lenh Shell
+  $ rm demo4
 
-$ ls | grep demo4
+  $ ls | grep demo4
 
-$ git restore demo4
-$ ls -n | grep demo4
-```
+  $ git restore demo4
+  $ ls -n | grep demo4
+  ```
 
-Gia su rang, demo4 sau khi duoc Git phuc hoi tu vung Staging, tiep tuc thuc hien `rm demo4` va `git add demo4` va `git status`, ket qua la Working Tree ve lai trang thai cua `last commit` chua co demo4.
+  Gia su rang, demo4 sau khi duoc Git phuc hoi tu vung Staging, tiep tuc thuc hien `rm demo4` va `git add demo4` va `git status`, ket qua la Working Tree ve lai trang thai cua `last commit` chua co demo4.
 
-Cung trong truong hop demo4 sau khi khoi phuc tu vung Staging, thuc hien `git rm` va `git status`, ta co ket qua:
+  Cung trong truong hop demo4 sau khi khoi phuc tu vung Staging, thuc hien `git rm` va `git status`, ta co ket qua:
 
-```text
-$ git-lesson % git rm demo4
-error: the following file has changes staged in the index:
-    demo4
-(use --cached to keep the file, or -f to force removal)
-```
+  ```text
+  $ git-lesson % git rm demo4
+  error: the following file has changes staged in the index:
+      demo4
+  (use --cached to keep the file, or -f to force removal)
+  ```
 
-Output la 1 thong bao loi va mot loi nhac. Theo dung logic thi Working Tree se tra ve trang thai `last commit` vi lenh `git rm` no lam 2 viec la `rm demo4` va `git add demo4` nhung lai la mot thong bao loi. Van de nay nam o cho, khi `git rm` thi Git kiem tra trong `last commit` co ton tai demo4 chua, neu demo4 da ton tai thi no se remove demo4 va khong thong bao loi vi sau khi remove Git co the phuc hoi dua vao du lieu `last commited`, va neu demo4 chua co trong `last commited` thi Git thong bao loi, dieu nay dam bao cho tinh an toan du lieu khong bi xoa nham vi nhieu khi demo4 co du lieu quan trong chua duoc commit nhung lo remove mac du da Staged thi thong bao loi la cach de giu an toan cho du lieu trong demo4.
+  Output la 1 thong bao loi va mot loi nhac. Theo dung logic thi Working Tree se tra ve trang thai `last commit` vi lenh `git rm` no lam 2 viec la `rm demo4` va `git add demo4` nhung lai la mot thong bao loi. Van de nay nam o cho, khi `git rm` thi Git kiem tra trong `last commit` co ton tai demo4 chua, neu demo4 da ton tai thi no se remove demo4 va khong thong bao loi vi sau khi remove Git co the phuc hoi dua vao du lieu `last commited`, va neu demo4 chua co trong `last commited` thi Git thong bao loi, dieu nay dam bao cho tinh an toan du lieu khong bi xoa nham vi nhieu khi demo4 co du lieu quan trong chua duoc commit nhung lo remove mac du da Staged thi thong bao loi la cach de giu an toan cho du lieu trong demo4.
 
-Nhu vay, trong moi truong hop doi khi `remove` mot file nao do, can can nhac dung lenh Shell hay lenh Git de dam bao an toan cho du lieu.
+  Nhu vay, trong moi truong hop doi khi `remove` mot file nao do, can can nhac dung lenh Shell hay lenh Git de dam bao an toan cho du lieu.
+
+- ### Removing cached
