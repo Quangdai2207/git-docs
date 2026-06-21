@@ -1,27 +1,27 @@
 # GIT BASIC - PHAN 2
 
-        1. [Commit thay doi](#commit-cac-thay-doi)
-            - [Commit bo qua staged](#commit-bo-qua-staged)
-        2. [Removing tep tin](#removing-tep-tin)
-        3. [Removing cached](#removing-cached)
+1. [Commit thay doi](#commit-cac-thay-doi)
+   - [Commit bo qua staged](#commit-bo-qua-staged)
+2. [Removing tep tin](#removing-tep-tin)
+3. [Removing cached](#removing-cached)
 
-    Trong [git basic phan 1](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
+   Trong [git basic phan 1](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
 
-    De xem lai nhung thay doi da duoc Staged cho lan `commit` tiep theo so voi lan commit gan nhat truoc do (last commied), ta co the dung git command `git diff --staeged`
+   De xem lai nhung thay doi da duoc Staged cho lan `commit` tiep theo so voi lan commit gan nhat truoc do (last commied), ta co the dung git command `git diff --staeged`
 
-    ```text
-    $ git diff --staged
-    diff --git a/README b/README
-    new file mode 100644
-    index 0000000..03902a1
-    --- /dev/null
-    +++ b/README
-    @@ -0,0 +1 @@
-    +Add content
-    ```
+   ```text
+   $ git diff --staged
+   diff --git a/README b/README
+   new file mode 100644
+   index 0000000..03902a1
+   --- /dev/null
+   +++ b/README
+   @@ -0,0 +1 @@
+   +Add content
+   ```
 
-    Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi title `new file mode`, sau do da them vao noi dung `Add content` va noi dung thay doi nay da duoc Staged, cuoi cung README chua co lan commit nao voi `/dev/null`.
-    `git diff --staged` ban than no khong hien thi noi dung thay doi trong lan commit gan nhat (last commited), no chi hien noi dung thay doi da duoc `staged` so voi `last commit`, neu nhu chua co `last commited` nao cho lan thay doi cuoi cung thi no la `/dev/null`.
+   Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi title `new file mode`, sau do da them vao noi dung `Add content` va noi dung thay doi nay da duoc Staged, cuoi cung README chua co lan commit nao voi `/dev/null`.
+   `git diff --staged` ban than no khong hien thi noi dung thay doi trong lan commit gan nhat (last commited), no chi hien noi dung thay doi da duoc `staged` so voi `last commit`, neu nhu chua co `last commited` nao cho lan thay doi cuoi cung thi no la `/dev/null`.
 
 - ##### Ghi nho:
 
