@@ -32,8 +32,7 @@ Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi t
   - `git diff --staged` chi so sanh thay doi da duoc `Staged` so voi `last commited`.
 
 - ##### git diff --cached
-
-  ## cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dung thay doi `staged` so voi `last commited`
+  cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dung thay doi `staged` so voi `last commited`
 
 ---
 
