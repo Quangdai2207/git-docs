@@ -1,32 +1,37 @@
 # GIT BASIC - PHAN 2
 
-Trong [git basic phan 1](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
+        1. [Commit thay doi](#commit-cac-thay-doi)
+            - [Commit bo qua staged](#commit-bo-qua-staged)
+        2. [Removing tep tin](#removing-tep-tin)
+        3. [Removing cached](#removing-cached)
 
-De xem lai nhung thay doi da duoc Staged cho lan `commit` tiep theo so voi lan commit gan nhat truoc do (last commied), ta co the dung git command `git diff --staeged`
+    Trong [git basic phan 1](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
 
-```text
-$ git diff --staged
-diff --git a/README b/README
-new file mode 100644
-index 0000000..03902a1
---- /dev/null
-+++ b/README
-@@ -0,0 +1 @@
-+Add content
-```
+    De xem lai nhung thay doi da duoc Staged cho lan `commit` tiep theo so voi lan commit gan nhat truoc do (last commied), ta co the dung git command `git diff --staeged`
 
-Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi title `new file mode`, sau do da them vao noi dung `Add content` va noi dung thay doi nay da duoc Staged, cuoi cung README chua co lan commit nao voi `/dev/null`.
-`git diff --staged` ban than no khong hien thi noi dung thay doi trong lan commit gan nhat (last commited), no chi hien noi dung thay doi da duoc `staged` so voi `last commit`, neu nhu chua co `last commited` nao cho lan thay doi cuoi cung thi no la `/dev/null`.
+    ```text
+    $ git diff --staged
+    diff --git a/README b/README
+    new file mode 100644
+    index 0000000..03902a1
+    --- /dev/null
+    +++ b/README
+    @@ -0,0 +1 @@
+    +Add content
+    ```
 
-##### Ghi nho:
+    Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi title `new file mode`, sau do da them vao noi dung `Add content` va noi dung thay doi nay da duoc Staged, cuoi cung README chua co lan commit nao voi `/dev/null`.
+    `git diff --staged` ban than no khong hien thi noi dung thay doi trong lan commit gan nhat (last commited), no chi hien noi dung thay doi da duoc `staged` so voi `last commit`, neu nhu chua co `last commited` nao cho lan thay doi cuoi cung thi no la `/dev/null`.
 
-- `git diff` chi hien thi ket qua khi thay doi `Unstaged` voi thay doi `Staged` truoc do.
-- `git diff` cung so sanh noi dung `Unstaged` voi `last commited`.
-- `git diff --staged` chi so sanh thay doi da duoc `Staged` so voi `last commited`.
+- ##### Ghi nho:
 
-##### git diff --cached
+  - `git diff` chi hien thi ket qua khi thay doi `Unstaged` voi thay doi `Staged` truoc do.
+  - `git diff` cung so sanh noi dung `Unstaged` voi `last commited`.
+  - `git diff --staged` chi so sanh thay doi da duoc `Staged` so voi `last commited`.
 
-cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dung thay doi `staged` so voi `last commited`
+- ##### git diff --cached
+
+  cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dung thay doi `staged` so voi `last commited`
 
 - ### Commit Cac Thay Doi.
 
@@ -235,4 +240,44 @@ cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dun
 
   Nhu vay, trong moi truong hop doi khi `remove` mot file nao do, can can nhac dung lenh Shell hay lenh Git de dam bao an toan cho du lieu.
 
+  `git rm` co the cho phep truyn vao pattern de remove moi thu, nhung can than.
+
+  ```bash
+  # Xoa tat ca file/subdir trong thu muc temp tai current directory
+  $ git rm ./temp/**
+
+  # Xoa tat ca file .log nam trong thu muc log, nhung khong duoc xoa .log nam trong subdir cua log.
+  $ git rm log/\*.log
+  ```
+
+  Dau `\` truoc `*` co nghia la ngan khong cho Shell mo rong `*`, vi `git mr` no thuc hien `rm file-name` va `git add`, cho nen dau `\` truoc ky tu `*` se ngan hanh vi mo rong cua Shell.
+
 - ### Removing cached
+
+  `Removing cache` la tinh nang giup cho viec huy theo doi cua Git doi voi mot file cu the. Trong truong hop cu the, khi vo tinh dua mot file chua thong tin nhay cam vao vung Staging (Staged) cho commit sap toi, viec huy bo no la dieu can thiet de tranh commit thong tin cua file khong mong muon. Git cho phep huuy theo theo tep do bang command `git rm --cached file`.
+
+  Neu nhu file do chi moi duoc dua vao vung Staging (Staged) nhung chua commit, thi `git resstore --staged` se dua file do ra khoi vung Staging va bo theo doi. Neu file do da nam trong mot commit cu the thi `git rm --cached` se giai quyet van de huy Trackied. Vi du:
+
+  > file .env chua commit
+
+  ```bash
+  # Staged toan bbo thay doi
+  $ git add .
+
+  # Remove .env ra khoi vung Staged
+  $ git restore --staged .env
+
+  $ git status
+  ```
+
+  > file .env vo tinh nam trong mot commit truoc do hoac lo commited cho thay doi hien tai
+
+  ```bash
+  # Remove .env ra khoi index du lieu Git
+  $ git rm --cached .env
+
+  # Kiem tra lai trang thai .env
+  $ git status
+  ```
+
+- [Git basic phan 3](./git-basic-3.md) - [Ve dau trang](#git-basic---phan-2)
