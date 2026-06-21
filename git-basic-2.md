@@ -7,7 +7,7 @@
 
 ---
 
-Trong [ git basic phan 1 ](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
+Trong - [ git basic phan 1 ](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
 
 De xem lai nhung thay doi da duoc Staged cho lan `commit` tiep theo so voi lan commit gan nhat truoc do (last commied), ta co the dung git command `git diff --staeged`
 
@@ -39,7 +39,7 @@ Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi t
 
 - ### Commit Cac Thay Doi.
 
-  `commit` cac thay doi chi tac dong len nhung thay doi da duoc `staged`, neu nhu co bat ky thay doi nao chua duoc dua vao khu vuc Staging Area (Staged) thi khong duoc commit tiep theo, moi thay doi do chi duoc xem la thay doi tren vung Working Tree ([3 trang thai cua git](./git-three-states.md)).
+  `commit` cac thay doi chi tac dong len nhung thay doi da duoc `staged`, neu nhu co bat ky thay doi nao chua duoc dua vao khu vuc Staging Area (Staged) thi khong duoc commit tiep theo, moi thay doi do chi duoc xem la thay doi tren vung Working Tree - [ 3 trang thai cua git ](./git-three-states.md).
 
   Gia su rang moi thay doi ra duoc Staged va ta thuc hien commit;
 
@@ -102,31 +102,29 @@ Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi t
    create mode 100644 README
   ```
 
----
+  - ##### Commit bo qua Staged
 
-- ##### Commit bo qua Staged
+    Nhu da noi, `git commit` chi tac dong len nhung thay doi da duoc Staged. Tuy nhien, doi voi nhung tep file ma Git da `Tracked` thi Git cho phep `commit` truc tiep voi flag `-a` thay vi thuc hien `git add` roi sau do `git commit`. Doi voi nhung file ma Git chua `Tracked` thi phai thuc hien `git add` truoc khi commit.
 
-  Nhu da noi, `git commit` chi tac dong len nhung thay doi da duoc Staged. Tuy nhien, doi voi nhung tep file ma Git da `Tracked` thi Git cho phep `commit` truc tiep voi flag `-a` thay vi thuc hien `git add` roi sau do `git commit`. Doi voi nhung file ma Git chua `Tracked` thi phai thuc hien `git add` truoc khi commit.
+    Mot dieu luu y, khi cac moi thay doi tren cac file da duoc Git `Tracked`, thi `git commit -a` se commit toan no cac thay doi do. Vay nen can nhac truoc khi su dung, vi mot so thay doi ma ta chua muon thuc hien trong commit hien tai.
 
-  Mot dieu luu y, khi cac moi thay doi tren cac file da duoc Git `Tracked`, thi `git commit -a` se commit toan no cac thay doi do. Vay nen can nhac truoc khi su dung, vi mot so thay doi ma ta chua muon thuc hien trong commit hien tai.
+    ```text
+    # Thuc hien thay doi noi noi dung DEMO-100 va commit
+    $ echo "add new content" >> DEMO-100
 
-  ```text
-  # Thuc hien thay doi noi noi dung DEMO-100 va commit
-  $ echo "add new content" >> DEMO-100
+    # Kiem tra status
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+      modified: DEMO-100
+    no changes added to commit (use "git add" and/or "git commit -a")
 
-  # Kiem tra status
-  $ git status
-  On branch master
-  Your branch is up-to-date with 'origin/master'.
-  Changes not staged for commit:
-    (use "git add <file>..." to update what will be committed)
-    (use "git checkout -- <file>..." to discard changes in working directory)
-    modified: DEMO-100
-  no changes added to commit (use "git add" and/or "git commit -a")
-
-  # commit thay doi
-  $ git commit -a -m "commit without staged"
-  ```
+    # commit thay doi
+    $ git commit -a -m "commit without staged"
+    ```
 
 ---
 
