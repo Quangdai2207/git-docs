@@ -5,23 +5,25 @@
 2. [Removing tep tin](#removing-tep-tin)
 3. [Removing cached](#removing-cached)
 
-   Trong [git basic phan 1](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
+---
 
-   De xem lai nhung thay doi da duoc Staged cho lan `commit` tiep theo so voi lan commit gan nhat truoc do (last commied), ta co the dung git command `git diff --staeged`
+Trong [ git basic phan 1 ](./git-basic.md) co de cap de `git dif` de kiem tra thay doi cua mot file da `Staged` va chua `Staged`. Cu the la Demo-100, khi lan dau noi dung cua no duoc Staged va sau do thuc hien chinh sua noi dung nhung khong Stage (Unstaged) va `git diff` thi Git se so sanh noi dung voi noi dung da Staged truoc do cua DEMO-100.
 
-   ```text
-   $ git diff --staged
-   diff --git a/README b/README
-   new file mode 100644
-   index 0000000..03902a1
-   --- /dev/null
-   +++ b/README
-   @@ -0,0 +1 @@
-   +Add content
-   ```
+De xem lai nhung thay doi da duoc Staged cho lan `commit` tiep theo so voi lan commit gan nhat truoc do (last commied), ta co the dung git command `git diff --staeged`
 
-   Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi title `new file mode`, sau do da them vao noi dung `Add content` va noi dung thay doi nay da duoc Staged, cuoi cung README chua co lan commit nao voi `/dev/null`.
-   `git diff --staged` ban than no khong hien thi noi dung thay doi trong lan commit gan nhat (last commited), no chi hien noi dung thay doi da duoc `staged` so voi `last commit`, neu nhu chua co `last commited` nao cho lan thay doi cuoi cung thi no la `/dev/null`.
+```text
+$ git diff --staged
+diff --git a/README b/README
+new file mode 100644
+index 0000000..03902a1
+--- /dev/null
++++ b/README
+@@ -0,0 +1 @@
++Add content
+```
+
+Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi title `new file mode`, sau do da them vao noi dung `Add content` va noi dung thay doi nay da duoc Staged, cuoi cung README chua co lan commit nao voi `/dev/null`.
+`git diff --staged` ban than no khong hien thi noi dung thay doi trong lan commit gan nhat (last commited), no chi hien noi dung thay doi da duoc `staged` so voi `last commit`, neu nhu chua co `last commited` nao cho lan thay doi cuoi cung thi no la `/dev/null`.
 
 - ##### Ghi nho:
 
@@ -31,7 +33,9 @@
 
 - ##### git diff --cached
 
-  cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dung thay doi `staged` so voi `last commited`
+  ## cach hoat dong cung giong nhu `git diff --staged`, no se thuc hien so so noi dung thay doi `staged` so voi `last commited`
+
+---
 
 - ### Commit Cac Thay Doi.
 
@@ -98,29 +102,33 @@
    create mode 100644 README
   ```
 
-  - ##### Commit bo qua Staged
+---
 
-    Nhu da noi, `git commit` chi tac dong len nhung thay doi da duoc Staged. Tuy nhien, doi voi nhung tep file ma Git da `Tracked` thi Git cho phep `commit` truc tiep voi flag `-a` thay vi thuc hien `git add` roi sau do `git commit`. Doi voi nhung file ma Git chua `Tracked` thi phai thuc hien `git add` truoc khi commit.
+- ##### Commit bo qua Staged
 
-    Mot dieu luu y, khi cac moi thay doi tren cac file da duoc Git `Tracked`, thi `git commit -a` se commit toan no cac thay doi do. Vay nen can nhac truoc khi su dung, vi mot so thay doi ma ta chua muon thuc hien trong commit hien tai.
+  Nhu da noi, `git commit` chi tac dong len nhung thay doi da duoc Staged. Tuy nhien, doi voi nhung tep file ma Git da `Tracked` thi Git cho phep `commit` truc tiep voi flag `-a` thay vi thuc hien `git add` roi sau do `git commit`. Doi voi nhung file ma Git chua `Tracked` thi phai thuc hien `git add` truoc khi commit.
 
-    ```text
-    # Thuc hien thay doi noi noi dung DEMO-100 va commit
-    $ echo "add new content" >> DEMO-100
+  Mot dieu luu y, khi cac moi thay doi tren cac file da duoc Git `Tracked`, thi `git commit -a` se commit toan no cac thay doi do. Vay nen can nhac truoc khi su dung, vi mot so thay doi ma ta chua muon thuc hien trong commit hien tai.
 
-    # Kiem tra status
-    $ git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git checkout -- <file>..." to discard changes in working directory)
-      modified: DEMO-100
-    no changes added to commit (use "git add" and/or "git commit -a")
+  ```text
+  # Thuc hien thay doi noi noi dung DEMO-100 va commit
+  $ echo "add new content" >> DEMO-100
 
-    # commit thay doi
-    $ git commit -a -m "commit without staged"
-    ```
+  # Kiem tra status
+  $ git status
+  On branch master
+  Your branch is up-to-date with 'origin/master'.
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
+    modified: DEMO-100
+  no changes added to commit (use "git add" and/or "git commit -a")
+
+  # commit thay doi
+  $ git commit -a -m "commit without staged"
+  ```
+
+---
 
 - ### Removing tep tin
 
@@ -252,6 +260,8 @@
 
   Dau `\` truoc `*` co nghia la ngan khong cho Shell mo rong `*`, vi `git mr` no thuc hien `rm file-name` va `git add`, cho nen dau `\` truoc ky tu `*` se ngan hanh vi mo rong cua Shell.
 
+---
+
 - ### Removing cached
 
   `Removing cache` la tinh nang giup cho viec huy theo doi cua Git doi voi mot file cu the. Trong truong hop cu the, khi vo tinh dua mot file chua thong tin nhay cam vao vung Staging (Staged) cho commit sap toi, viec huy bo no la dieu can thiet de tranh commit thong tin cua file khong mong muon. Git cho phep huuy theo theo tep do bang command `git rm --cached file`.
@@ -280,4 +290,4 @@
   $ git status
   ```
 
-- [Git basic phan 3](./git-basic-3.md) - [Ve dau trang](#git-basic---phan-2)
+- [ Git basic phan 3 ](./git-basic-3.md) - [ Ve dau trang ](#git-basic---phan-2)
