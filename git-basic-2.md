@@ -127,7 +127,7 @@ Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi t
 
 ---
 
-- ### Removing tep tin
+- ### Removing Tep Tin
 
   Trong ngu canh, kho luu tru dang o trang thai `last commited` chua co bat ky su thay doi nao va toan bo dang duoc Git Tracked. Trong truong hop remove 1 file cu the trong Working Tree, ta co the thuc hien bang cach, mot la lenh Shell va 2 lenh Git. Su khac nhau cua 2 lenh nay la lenh Shell remove dong thoi phai Staged su thay doi, lenh Git remove tu dong Staged su thay doi. Vi du:
 
@@ -259,7 +259,7 @@ Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi t
 
 ---
 
-- ### Removing cached
+- ### Removing Cached
 
   `Removing cache` la tinh nang giup cho viec huy theo doi cua Git doi voi mot file cu the. Trong truong hop cu the, khi vo tinh dua mot file chua thong tin nhay cam vao vung Staging (Staged) cho commit sap toi, viec huy bo no la dieu can thiet de tranh commit thong tin cua file khong mong muon. Git cho phep huuy theo theo tep do bang command `git rm --cached file`.
 
@@ -286,5 +286,36 @@ Ket qua cho thay README la mot file moi lan dau duoc them vao Working Tree voi t
   # Kiem tra lai trang thai .env
   $ git status
   ```
+
+- ### Moving File
+
+  Moving file la lenh di chuyen file tu thu muc nay sang thu muc khac, tuy nhien `moving` cung duoc dung de thay doi ten cua mot file. Moving trong Git cung giong lenh `move` trong Shell.
+
+  Trong Git, khi thay doi ten cua mot File, ta co the su dung `git mv` de thuc hien do
+
+  ```text
+  $ git mv README.md README
+  $ git status
+  On branch master
+  Your branch is up-to-date with 'origin/master'.
+  Changes to be committed:
+    (use "git reset HEAD <file>..." to unstage)
+    renamed: README.md -> README
+  ```
+
+  Khi thuc hien doi ten file bang `git mv`, Git tu dong Staged thay doi do. Neu dung shell de thay doi ten file thi ta can phai thuc hien 3 buoc
+
+  ```text
+  # Doi ten file
+  $ mv README.md README
+
+  # Remove file README.md ma git Tracked
+  $ git rm README.md
+
+  # Add file moi moi doi ten README va Staged
+  $ git add README
+  ```
+
+  Viec doi ten file trong Git co the duoc thuc hien theo nhieu cong cu khac nhau, nhung neu thuc hien bang lenh cua Git thi ta chi can thuc hien 1 buoc thay vi 3 buoc truoc khi commit.
 
 - [ Git basic phan 3 ](./git-basic-3.md) - [ Ve dau trang ](#git-basic---phan-2)
