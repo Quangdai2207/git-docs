@@ -117,7 +117,7 @@ $ git config --global pull.rebase "true"
 
 ```text
 # pull la true
-$ git pull git-lessoon/main  <=> git pull --rebase <remote>/<branch>
+$ git pull <remote>  <=> git pull --rebase <remote>
 ```
 
 Khi thuc hien `git pull <remote>` hoac `git pull --rebase <remote>`, Git se thuc hien 2 dieu:
