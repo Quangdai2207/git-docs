@@ -220,11 +220,11 @@ Ket qua dau ra cho biet lich su cua qua trinh tach nhanh va `merge commit` duoc 
 | --------------- | ---------------------------------------------------------------------------------------------------- |
 | -p              | Hien thi ban va cho moi commit                                                                       |
 | --stat          | Hien thi so lieu thong ke cho moi commit                                                             |
-| -shortstat      | Hien thi so dong da thay doi/chen/xoa tu lenh --stat                                                 |
+| --shortstat     | Hien thi so dong da thay doi/chen/xoa tu lenh --stat                                                 |
 | --name-only     | Hien thi danh sach cac tep tin duoc sua doi sau thong tin commit                                     |
 | --name-status   | Hien thi danh sach tep bi anh huongvoi thong tin duoc them/sua/xoa                                   |
 | --abbrev-commit | Chi hien thi mot vai ky tu dau tien cua tong kiem tra SHA-1 thay vi 40 ky tu                         |
-| -relative-date  | Hien thi ngay co format tuong doi (VD: "2 tuan truoc") thay vi hien thi ngay day du                  |
+| --relative-date | Hien thi ngay co format tuong doi (VD: "2 tuan truoc") thay vi hien thi ngay day du                  |
 | --graph         | Hien thi graph dang ASCII cua nhanh va lich su merge commit kem voi noi dung log                     |
 | --pretty        | Hien thi commit o dinh dang custom. Cac gia tri tuy chon format bao gom oneline, short, full, fuller |
 | --oneline       | Viet tat cua --pretty=oneline --abbrev-commit su dung ket hop                                        |
