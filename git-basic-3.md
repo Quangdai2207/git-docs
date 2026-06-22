@@ -1,8 +1,10 @@
 # GIT BASIC - PHAN 3
 
-    1. Git log - Xem lich su committed
-        - Gioi han ket qua dau ra
-    2. UNdoing Things - Hoan Tac
+1. [Git log - Xem lich su committed](#viewing-git-log---xem-lich-su-commit)
+   - [Mau pattern format](#bang-ky-hieu-pattern-cho---prettyformat)
+   - [Mau Optional](#bang-optiional-cho-git-log)
+2. [Undoing Things - Hoan Tac](#undoing---hoan-tac)
+3. [Unstaged tep tin](#unstage-a-staged-file---hoan-tac-mot-file-staged)
 
 ---
 
@@ -380,6 +382,8 @@ Lenh `git reset --hard HEAD^` chi tac dong len `last committed` vi con tro `HEAD
 
 > 1. Git reset lai index va Workiing trong du lieu cua Git
 > 2. Git di chuyen con tro HEAD xuong commit gan nhat, (0dc914e228ec0c4528bbb9cfa1ea26533b98aa1c)
-> 3. Toan bo noi dung thay doi trong noi dung 3 duoc restore ve commit gan nhat (0dc914e228ec0c4528bbb9cfa1ea26533b98aa1c)
+> 3. Toan bo noi dung thay doi trong demo3 duoc restore ve commit gan nhat (0dc914e228ec0c4528bbb9cfa1ea26533b98aa1c)
 
 Khi su dung lenh nay tuyet doi can than, chi su dung trong truong hop thuc su can thiet. Mot cach an toan co the khac phuc su co khong mong muon la backup toan bo noi dung ra mot file rieng khong bi Git Tracked hoac nam trong mot Folder doc lap khac. Sau khi backup an toan thi thuc hien lenh `git reset`.
+
+- ###### [Ve dau trang](#git-basic---phan-3)
