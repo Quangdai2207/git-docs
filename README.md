@@ -6,6 +6,9 @@ Git handbook la tai lieu rut ngan va co dong lai kien thuc trong qua trinh tim h
 2. [3 trang thai cua Git](./git-three-states.md)
 3. [Cai dat Git](./git-setup.md)
 4. [Git basic - phan 1](./git-basic.md)
+4. [Git basic - phan 2](./git-basic.md)
+4. [Git basic - phan 4](./git-basic.md)
+4. [Git basic - phan 4](./git-basic.md)
 5. [Git commands](./git-commands.md)
 
 ...
