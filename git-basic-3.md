@@ -386,4 +386,4 @@ Lenh `git reset --hard HEAD^` chi tac dong len `last committed` vi con tro `HEAD
 
 Khi su dung lenh nay tuyet doi can than, chi su dung trong truong hop thuc su can thiet. Mot cach an toan co the khac phuc su co khong mong muon la backup toan bo noi dung ra mot file rieng khong bi Git Tracked hoac nam trong mot Folder doc lap khac. Sau khi backup an toan thi thuc hien lenh `git reset`.
 
-- ###### [Ve dau trang](#git-basic---phan-3)
+- ###### [Ve dau trang](#git-basic---phan-3) - [ Git basic phan 4 ](./git-basic-4.md)
