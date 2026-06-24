@@ -6,7 +6,7 @@
 2. [Undoing Things - Hoan Tac](#undoing---hoan-tac)
 3. [Unstaged tep tin](#unstage-a-staged-file---hoan-tac-mot-file-staged)
 
----
+>
 
 ### Viewing Git Log - Xem Lich Su Commit
 
@@ -28,7 +28,7 @@ Date:   Sun Jun 21 08:20:59 2026 +0700
 ...
 ```
 
-Co the them tuy chon `-p` (--patch) de xem noi dung thay doi cua tung commit va gioi han so luong log bang tham so [-number] neu khong muon xem toan bo lich su commit
+Co the them tuy chon `-p` (--patch) de xem noi dung thay doi cua tung commit va gioi han so luong log bang tham so [-number] neu khong muon xem toan bo lich su commit, vi du:
 
 ```text
 $ git log -p -2
@@ -194,11 +194,11 @@ feb34f3 - Quangdai2207, 10 days ago : first commit
         </tbody>
     </table>
 
-Co the ket hop --pretty=format va --oneline voi tuy chon --graph de xem lich su commit dang Tree
+Co the ket hop `--pretty=format` va `--oneline` voi tuy chon `--graph` de xem lich su commit dang Tree
 
 ```text
-* d096727 (HEAD -> main) v
-* 5a242f5 ok
+* d096727 (HEAD -> main) fourth committed
+* 5a242f5 third committed
 * 54215e0 add ccc
 * 952aa44 add bbb for demo-100
 * 48b4ca9 add demo-100
@@ -216,63 +216,63 @@ Ket qua dau ra cho biet lich su cua qua trinh tach nhanh va `merge commit` duoc 
 
 - #### Bang optiional cho `git log`
 
-| Optional        | Y nghia                                                                                              |
-| --------------- | ---------------------------------------------------------------------------------------------------- |
-| -p              | Hien thi ban va cho moi commit                                                                       |
-| --stat          | Hien thi so lieu thong ke cho moi commit                                                             |
-| --shortstat     | Hien thi so dong da thay doi/chen/xoa tu lenh --stat                                                 |
-| --name-only     | Hien thi danh sach cac tep tin duoc sua doi sau thong tin commit                                     |
-| --name-status   | Hien thi danh sach tep bi anh huongvoi thong tin duoc them/sua/xoa                                   |
-| --abbrev-commit | Chi hien thi mot vai ky tu dau tien cua tong kiem tra SHA-1 thay vi 40 ky tu                         |
-| --relative-date | Hien thi ngay co format tuong doi (VD: "2 tuan truoc") thay vi hien thi ngay day du                  |
-| --graph         | Hien thi graph dang ASCII cua nhanh va lich su merge commit kem voi noi dung log                     |
-| --pretty        | Hien thi commit o dinh dang custom. Cac gia tri tuy chon format bao gom oneline, short, full, fuller |
-| --oneline       | Viet tat cua --pretty=oneline --abbrev-commit su dung ket hop                                        |
+  | Optional        | Y nghia                                                                                              |
+  | --------------- | ---------------------------------------------------------------------------------------------------- |
+  | -p              | Hien thi ban va cho moi commit                                                                       |
+  | --stat          | Hien thi so lieu thong ke cho moi commit                                                             |
+  | --shortstat     | Hien thi so dong da thay doi/chen/xoa tu lenh --stat                                                 |
+  | --name-only     | Hien thi danh sach cac tep tin duoc sua doi sau thong tin commit                                     |
+  | --name-status   | Hien thi danh sach tep bi anh huongvoi thong tin duoc them/sua/xoa                                   |
+  | --abbrev-commit | Chi hien thi mot vai ky tu dau tien cua tong kiem tra SHA-1 thay vi 40 ky tu                         |
+  | --relative-date | Hien thi ngay co format tuong doi (VD: "2 tuan truoc") thay vi hien thi ngay day du                  |
+  | --graph         | Hien thi graph dang ASCII cua nhanh va lich su merge commit kem voi noi dung log                     |
+  | --pretty        | Hien thi commit o dinh dang custom. Cac gia tri tuy chon format bao gom oneline, short, full, fuller |
+  | --oneline       | Viet tat cua --pretty=oneline --abbrev-commit su dung ket hop                                        |
 
-Mot so cac tuy chon ve gioi han thoi gian `time-limiting` cung co them mot so thong tin huu ich khi muon xem nhat ky commit
+  Mot so cac tuy chon ve gioi han thoi gian `time-limiting` cung co them mot so thong tin huu ich khi muon xem nhat ky commit
 
-```text
-$ git log --since=1.week --oneline
-d096727 (HEAD -> main) fourth committed
-5a242f5 third committed
-54215e0 add ccc
-952aa44 add bbb for demo-100
-48b4ca9 add demo-100
-955a972 ok
+  ```text
+  $ git log --since=1.week --oneline
+  d096727 (HEAD -> main) fourth committed
+  5a242f5 third committed
+  54215e0 add ccc
+  952aa44 add bbb for demo-100
+  48b4ca9 add demo-100
+  955a972 ok
 
-# Hoac dung format --since="[<yy-mm-dd> | <time ago> | <2 year 3 days 10 minutes>]"
-$ git log --since="24 hours ago"
-d096727 (HEAD -> main) fourth committed
-5a242f5 third committed
+  # Hoac dung format --since="[<yy-mm-dd> | <time ago> | <2 year 3 days 10 minutes>]"
+  $ git log --since="24 hours ago"
+  d096727 (HEAD -> main) fourth committed
+  5a242f5 third committed
 
-# Hoac ket hop voi lenh Shell bash
-$ git log --pretty=format:"%h - %ae" -2 | grep -e "ai"
-d096727 - daitran.inbox@gmail.com
-5a242f5 - daitran.inbox@gmail.com
-```
+  # Hoac ket hop voi lenh Shell bash
+  $ git log --pretty=format:"%h - %ae" -2 | grep -e "ai"
+  d096727 - daitran.inbox@gmail.com
+  5a242f5 - daitran.inbox@gmail.com
+  ```
 
-```bash
-# Chi muon xem cac commit cu the cua mot file/folder, dung (-- de thuc hien
-$ git log -- git-deeper/demo-100
+  ```bash
+  # Chi muon xem cac commit cu the cua mot file/folder, dung (-- de thuc hien
+  $ git log -- git-deeper/demo-100
 
-# Chi muon xem commit cua mot noi dung (function, chuoii), neu biet cu the chuoi hoac ham chuc nang do, dung -S thuc hien
-$ git log -S userService
-```
+  # Chi muon xem commit cua mot noi dung (function, chuoii), neu biet cu the chuoi hoac ham chuc nang do, dung -S thuc hien
+  $ git log -S userService
+  ```
 
-| Optional          | Y nghia                                                                    |
-| ----------------- | -------------------------------------------------------------------------- |
-| -`<n>`            | Hien thi n commit, tinh tu last commit tro ve truoc                        |
-| --since, --after  | gioi han commit da tao sau ngay dinh dinh (Ke tu ngay.....den sau ngay)    |
-| --until, --before | Gioi han commit da tao truoc ngay chi dinh (Ke tu ngay.... den truoc ngay) |
-| --author          | Hien thi commit khoi voi ten cua tac gia                                   |
-| --committer       | Chi hien thi commit khoi voi ten nguoi commit                              |
-| --grep            | Chi hien thi commit khop voi chuoi message                                 |
-| -S                | Hien thi commits khop voi chuoi chi dinh                                   |
+  | Optional          | Y nghia                                                                    |
+  | ----------------- | -------------------------------------------------------------------------- |
+  | -<n>              | Hien thi n commit, tinh tu last commit tro ve truoc                        |
+  | --since, --after  | gioi han commit da tao sau ngay dinh dinh (Ke tu ngay.....den sau ngay)    |
+  | --until, --before | Gioi han commit da tao truoc ngay chi dinh (Ke tu ngay.... den truoc ngay) |
+  | --author          | Hien thi commit khoi voi ten cua tac gia                                   |
+  | --committer       | Chi hien thi commit khoi voi ten nguoi commit                              |
+  | --grep            | Chi hien thi commit khop voi chuoi message                                 |
+  | -S                | Hien thi commits khop voi chuoi chi dinh                                   |
 
-```bash
-# lay 5 commit chua merge tai thu muc src/ ke tu 01-05-2026 den truoc 01-06-2026 voi format [hash - author - date]
-$ git log --pretty=format:"%h - %ad" --oneline -- since="2026-05-01" --before="2026-06-01" --no-merges -- src/ -5
-```
+  ```bash
+  # lay 5 commit chua merge tai thu muc src/ ke tu 01-05-2026 den truoc 01-06-2026 voi format [hash - author - date]
+  $ git log --pretty=format:"%h - %ad" --oneline -- since="2026-05-01" --before="2026-06-01" --no-merges -- src/ -5
+  ```
 
 ### Undoing - Hoan tac
 
@@ -354,7 +354,7 @@ $ cat demo2
 
 ```
 
-> LUU Y: Neu mot file da chinh sua nhung chua Staged, khi "git restore" toan bo noi dung chinh sua se bien mat va noi dung file se quay ve noi dung cua "last commit".
+> **Luu y:** Neu mot file da chinh sua nhung chua Staged, khi "git restore" toan bo noi dung chinh sua se bien mat va noi dung file se quay ve noi dung cua "last commit".
 
 Gia su, noi dung moi cua demo3 da duoc committed nhung vi li do nao do ta muon huy bo commit do, thi ta co the thuc hien
 

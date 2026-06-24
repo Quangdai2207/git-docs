@@ -123,8 +123,6 @@ $ git commit -m "first commit"
   $ git commit -a -m "commit without staged"
   ```
 
----
-
 ### Removing Tep Tin
 
 Trong ngu canh, kho luu tru dang o trang thai `last commited` chua co bat ky su thay doi nao va toan bo dang duoc Git Tracked. Trong truong hop remove 1 file cu the trong Working Tree, ta co the thuc hien bang cach, mot la lenh Shell va 2 lenh Git. Su khac nhau cua 2 lenh nay la lenh Shell remove dong thoi phai Staged su thay doi, lenh Git remove tu dong Staged su thay doi. Vi du:
@@ -258,8 +256,6 @@ $ git rm log/\*.log
 
 Dau `\` truoc `*` co nghia la ngan khong cho Shell mo rong `*`, vi `git mr` no thuc hien `rm file-name` va `git add`, cho nen dau `\` truoc ky tu `*` se ngan hanh vi mo rong cua Shell.
 
----
-
 ### Removing Cached
 
 `Removing cache` la tinh nang giup cho viec huy theo doi cua Git doi voi mot file cu the. Trong truong hop cu the, khi vo tinh dua mot file chua thong tin nhay cam vao vung Staging (Staged) cho commit sap toi, viec huy bo no la dieu can thiet de tranh commit thong tin cua file khong mong muon. Git cho phep huuy theo theo tep do bang command `git rm --cached file`.
@@ -292,7 +288,9 @@ $ git status
 
 Moving file la lenh di chuyen file tu thu muc nay sang thu muc khac, tuy nhien `moving` cung duoc dung de thay doi ten cua mot file. Moving trong Git cung giong lenh `move` trong Shell.
 
-Trong Git, khi thay doi ten cua mot File, ta co the su dung `git mv` de thuc hien do
+Trong Git, khi thay doi ten cua mot File, ta co the su dung `git mv` de thuc hien do;
+
+> git mv <ten-cu> <ten-moi>
 
 ```text
 $ git mv README.md README

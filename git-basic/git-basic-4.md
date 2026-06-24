@@ -63,7 +63,7 @@ local5000	https://localhost:5000/account/document (fetch)
 local5000	https://localhost:5000/account/document (push)
 ```
 
-Thuc hien nap du lieu cap nhat trang thai kho du lieu tu Remote cho local, su dung ten remote de thuc Fetch du lieu
+Thuc hien nap du lieu cap nhat trang thai kho du lieu tu Remote cho local, su dung ten remote de thuc `Fetch` du lieu
 
 ```text
 $ git fetch git-lesson
@@ -93,7 +93,7 @@ $ git status
 
 ### Fetching And Pulling Remote - Nap va Keo Du Lieu Tu Remote
 
-> $ git fetch <remote>
+> $: git fetch <remote>
 
 Khi su dung cau lenh nay, thi no se thuc hien viec tai toan bo du lieu tu kho luu tru Remote, bat ky du lieu nao duoc pushed len kho Remote cung duoc tai ve trong kho luu tru cuc bo cua ban (.git). Sau khi thuc hien xong, kho luu tru cuc bo se co toan bo lich su commit va cac nhanh hien co cua kho luu tru Remote va co the merge thu cong bat cu khi nao ban muon.
 
@@ -113,7 +113,7 @@ $ git config --global pull.rebase "false"
 $ git config --global pull.rebase "true"
 ```
 
-> Luu y: Khi thuc hien cau hinh mac dinh pull.rebase "true" thi nen can than voi lenh 'git pull', vi 'git pull' luc nay se la 'git pull --rebase'
+> **Luu y:** Khi thuc hien cau hinh mac dinh pull.rebase "true" thi nen can than voi lenh 'git pull', vi 'git pull' luc nay se la 'git pull --rebase'
 
 ```text
 # pull la true
