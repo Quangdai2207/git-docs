@@ -384,6 +384,80 @@ Lenh `git reset --hard HEAD^` chi tac dong len `last committed` vi con tro `HEAD
 > 2. Git di chuyen con tro HEAD xuong commit gan nhat, (0dc914e228ec0c4528bbb9cfa1ea26533b98aa1c)
 > 3. Toan bo noi dung thay doi trong demo3 duoc restore ve commit gan nhat (0dc914e228ec0c4528bbb9cfa1ea26533b98aa1c)
 
+Ngoai ra `git reset` cung co the ap dung cho `merge commit`, neu nhu sau khi `merge commit` va ta muon hoan tac ve lai commit truoc do hoac cac commit truoc do thi ta co the dung `git reset` de thuc hieu dieu do
+
+```bash
+# Tai vi tri HEAD merge commit lui ve commit cha
+$ git reset --hard HEAD^
+
+# HEAD~1 <=> HEAD^, lui ve commit cha
+$ git reset --hard HEAD~1
+
+# Lui ve 2 buoc
+$ git reset --hard HEAD~2
+```
+
+Ve ban chat, merge commit cung la `last commit`, chi khac la `merge commit` thuc hien merge commit tu nhanh khac vao nhanh muc tieu, con neu dang tren cung mot nhanh thi chi don thuan la `commit`. Vay nen, `git reset` ao dung cho viec phuc hoi ve lai trang thai cua commit cha gan nhat.
+
+```text
+Gia su ta co chuoi commit nhu sau:    A -> B -> C -> D
+                                                    HEAD^
+Thuc hien `git reset --hard HEAD~1`   A -> B -> C
+                                               HEAD~1
+Commit D bi co lap sau khi reset
+```
+
+> Minh hoa thuc te:
+
+```text
+# Log lich su khi chua reset
+$ git log --oneline -5
+cb23f9e (HEAD -> main) aaa
+0dc914e add content demo3
+a406d8c Them noi dung cho demo3
+d096727 v
+5a242f5 ok
+
+# Reset ve commit cha 0dc914e
+$ git reset --hard HEAD~1
+HEAD is now at 0dc914e add content demo3
+
+# Kiem tra vi tri HEAD sau khi reset
+$ git log --oneline -5
+0dc914e (HEAD -> main) add content demo3
+a406d8c Them noi dung cho demo3
+d096727 v
+5a242f5 ok
+54215e0 add ccc
+```
+
+Nhu trong minh hoa, tren thuc te sau khi `git reset`, Git chi dua con tro HEAD ve vi tri `commit cha` **C** va commit D van con ton tai trong lich su commit. Dieu nay co nghia, ta co the phuc hoi ve lai trang thai cua `last commit` bang cach su dung su dung `git reflog` va tiep tuc la `git reset`.
+
+```text
+# Hien thi toan bo lich su commit bang git reflog
+$ git reflog
+0dc914e (HEAD -> main) HEAD@{0}: reset: moving to HEAD~1        // commit cha (C) voi HEAD@{0}      => last commit sau khi reset D
+cb23f9e HEAD@{1}: reset: moving to cb23f9e                      // Commit da reset (D) voi HEAD@{1} => commit D sau khi reset
+a406d8c HEAD@{2}: reset: moving to HEAD~2
+cb23f9e HEAD@{3}: commit: aaa
+0dc914e (HEAD -> main) HEAD@{4}: reset: moving to HEAD^
+
+# Reset ve lai commit D, lay HEAD@{1} cua D hoac hash commit cb23f9e de phuc hoi
+$ git reset --hard HEAD@{1}
+HEAD is now at cb23f9e aaa
+
+# kiem tra log bang reflog
+$ git reflog --oneline -5
+cb23f9e (HEAD -> main) HEAD@{0}: reset: moving to HEAD@{1}      // commit D voi HEAD@{0}            => Last commit sau khi phuc hoi
+0dc914e HEAD@{1}: reset: moving to HEAD~1                       // commit cha C voi HEAD@{1}        => commit C sau khi phuc hoi
+cb23f9e (HEAD -> main) HEAD@{2}: reset: moving to cb23f9e
+a406d8c HEAD@{3}: reset: moving to HEAD~2
+cb23f9e (HEAD -> main) HEAD@{4}: commit: aaa
+```
+
+> [!important]
+> Mot dieu can luu y la `Last commit` luon co dang `HEAD@{0}`
+
 Khi su dung lenh nay tuyet doi can than, chi su dung trong truong hop thuc su can thiet. Mot cach an toan co the khac phuc su co khong mong muon la backup toan bo noi dung ra mot file rieng khong bi Git Tracked hoac nam trong mot Folder doc lap khac. Sau khi backup an toan thi thuc hien lenh `git reset`.
 
 - ###### [Ve dau trang](#git-basic---phan-3) - [ Git basic phan 4 ](./git-basic-4.md)
