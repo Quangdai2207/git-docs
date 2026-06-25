@@ -1,10 +1,9 @@
 # GIT HANDBOOK
 
-Git handbook la tai lieu rut ngan va co dong lai kien thuc trong qua trinh tim hieu sau hon ve Git, tai lieu chuyen ngu tu cac tai lieu tieng anh tong hop tu nhieu nguon. con moi so loi danh may chua chinh sua kip. Tai lieu phuc vu cho muc dich hoc tap va hieu ve luong thuc thi cua Git trong qua trinh lam viec voi Git.
+> [!NOTE]
 
-Tai lieu vua mang tinh dich thuat, kiem chung dong thoi giai thich nhuung van de con gay kho hieu ma tai lieu chua giai thich mot cach thoa dang. Dua tren nhung gi da lam va thu nghiem, luong thuc thi se duoc giai thich cu the qua hinh minh hoa de giai dap thac mac trong qua trinh doc va thuc nghiem.
-
-Mot so noi dung tham khao 
+> Git Handbook la tai lieu tong hop tu nhieu nguon tai lieu trong qua trinh doc de hieu sau hon ve cach hoat dong cua Git. Tai lieu vua mang tinh chat dich thuat, dong thoi mot rong phan giai thich sau hon cho mot so truong hop gay kho hieu trong tai lieu va chua giai thich thoa dan dua tren nhung gi thuc nghiem. Mot so luong thuc thi cung duoc giai thich them thong qua hinh minh hoa duoc trich trong tai lieu.
+> Tai lieu dang trong qua trinh chinh sua nen con mot so loi danh may chua chinh sua va noi dung dang duoc cap nhat them.
 
 1. [Hueu ve Git](./Understanding-git.md)
 2. [3 trang thai cua Git](./git-three-states.md)
