@@ -15,6 +15,7 @@ Mot so noi dung tham khao
 7. [Git basic - phan 3](./git-basic/git-basic-3.md)
 8. [Git basic - phan 4](./git-basic/git-basic-3.md)
 9. [Git commands](./git-commands.md)
+10. [Git ignore](./git-ignore.md)
 
 ...
 
