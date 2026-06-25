@@ -431,7 +431,7 @@ d096727 v
 54215e0 add ccc
 ```
 
-Nhu trong minh hoa, tren thuc te sau khi `git reset`, Git chi dua con tro HEAD ve vi tri `commit cha` **C** va commit D van con ton tai trong lich su commit. Dieu nay co nghia, ta co the phuc hoi ve lai trang thai cua `last commit` bang cach su dung su dung `git reflog` va tiep tuc la `git reset`.
+Nhu trong minh hoa, tren thuc te sau khi `git reset`, Git chi dua con tro HEAD ve vi tri `commit cha` **C** va commit D van con ton tai trong lich su commit. Dieu nay co nghia, ta co the phuc hoi ve lai trang thai cua commit da reset bang cach su dung su dung `git reflog` va tiep tuc la `git reset`.
 
 ```text
 # Hien thi toan bo lich su commit bang git reflog
