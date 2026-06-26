@@ -141,3 +141,52 @@ $ git reset --hard HEAD~1
 # Thuc hien lai git pull dung flow khong rebase
 $ git pull origin
 ```
+
+### Pushing To Your Remotes - Day ma nguon len Kho Remote
+
+> $ git push `<Remote-name>` `<Branch-name>`
+
+Khi muon dua du lieu tu kho luu tru tren may len Remote, ta co the su dung `git push` de thuc hien dieu do. Trong do:
+
+> `Remote-name` : Kho luu tru Remote
+> `Branch-name` : Ten nhanh tren kho luu tru cuc bo publish len kho luu tru Remote
+
+```bash
+# Push nhanh main len khoo luu tru remote origin
+$ git push origin main
+
+# Push nhanh feature len kho luu tru origin
+$ git push origin feature
+```
+
+Mot khi thuc hien `git push` nghia la ta dang publish nhanh local len nhanh remote va bat ky ai cung co the truy cap duoc vao nhanh cua ta. Neu nhu khong thuc hien `git push` thi nghia la nhanh van dang `private` chua duoc cong khai. Khi thuc hien Push nhanh, Git dong thoi push luon toan bo lich su commit cua nhanh do.
+
+Lenh Push chi co tac dung khi ta co quyen ghi/doc vao Remote, chang han nhu kho luu tru remote cua cua team hay cua cong ty va ta duoc cap quyen de ghi/doc thi Push se co hieu luc, nguoc lai thi khong. Hoac la kho luu tru Remote mang tinh ca nhan.
+Neu nhu trong truong hop khi ban va mot nguoi khac Push cung mot luc, co the 1 troong 2 nguoi hoac nguoi khac dang Push se bi `Reject`, viec nay dong nghia la phai doi nguoi khac push, sau do duoi local thuc hien `pull hoac pull --rebase` dong bo kho luu tru cuc bo voi Remote va sau do thuc hien Push.
+
+### Inspecting a Remote - Kiem tra Remote
+
+> $ git remmote show <Remote-name>
+
+Neu muon xem thong tin cu the cua mot Remote ta co the thuc hien bang command `git remote show <remote-name>`
+
+```text
+$ git remote show origin
+* remote origin
+  Fetch URL: git@github.com:Quangdai2207/git-docs.git
+  Push  URL: git@github.com:Quangdai2207/git-docs.git
+  HEAD branch: main
+  Remote branches:
+    dev    new (next fetch will store in remotes/origin)
+    main   tracked
+    tester new (next fetch will store in remotes/origin)
+    topic  new (next fetch will store in remotes/origin)
+
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (up to date)
+```
+
+Output cau lenh nay cho ta biet local dang Remote kho luu tru nao, HEAD Remote dang dung tai nhanh `main` va nhanh `main` dang duoc Tracked boi nhanh `main` local, cac nhanh con lai la nhanh tao moi chua duoc `tracked` tu local. cuoi cung la nhanh `main` local duoc cau hinh de pull du lieu tu nhanh `main` cua kho luu tru Remote va push tu `main` local len `main` Remote.
+Nhung nhanh nao tren Remote co nhung duoi local chua co, khi thuc hien `git pull hoac git pull --rebase` thi toan bo du lieu va Branchs tu Remote se dong bo tren kho luu tru local. 
